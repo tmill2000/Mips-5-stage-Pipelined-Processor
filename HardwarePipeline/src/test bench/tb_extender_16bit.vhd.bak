@@ -1,0 +1,76 @@
+-------------------------------------------------------------------------
+-- Tyler Miller
+-- Department of Electrical and Computer Engineering
+-- Iowa State University
+-------------------------------------------------------------------------
+
+
+-- tb_extender_16bit.vhd
+-------------------------------------------------------------------------
+-- DESCRIPTION: This file contains a simple VHDL testbench for the 16 bit extender
+-------------------------------------------------------------------------
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity tb_extender_16bit is
+  generic(gCLK_HPER   : time := 50 ns);
+end tb_extender_16bit;
+
+architecture behavior of tb_extender_16bits is
+  
+  -- Calculate the clock period as twice the half-period
+  constant cCLK_PER  : time := gCLK_HPER * 2;
+
+
+  component extender_16bit
+   generic(N : integer := 32);
+    port(
+       signed_ext  : in std_logic;	            
+       i_D         : in std_logic_vector(15 downto 0);     -- Clock input
+       o_O         : out std_logic_vector(N-1 downto 0));
+  end component;
+
+  signal signed_ext   : std_logic := '0';
+  signal i_D          : std_logic_vector(15 downto 0) := x"0000";     -- Data value input
+  signal o_O          : std_logic_vector(31 downto 0);
+
+begin
+
+  DUT0: extender_16bit
+  port map(
+        i_D   => i_D,
+	signed_ext => signed_ext,
+        o_O  => o_O
+       );
+  
+  -- Testbench process  
+  P_TB: process
+  begin
+    wait for gCLK_HPER/2;
+
+   signed_ext <= '1';
+   i_D   <= x"F000";
+   wait for gCLK_HPER;
+   signed_ext <= '0';
+   i_D   <= x"FFFF";
+   wait for gCLK_HPER;
+   signed_ext <= '0';
+   i_D   <= x"0FFF";
+   wait for gCLK_HPER;
+   signed_ext <= '0';
+   i_D   <= x"00FF";
+   wait for gCLK_HPER;
+   signed_ext <= '0';
+   i_D   <= x"000F";
+   wait for gCLK_HPER;
+   signed_ext <= '0';
+   i_D   <= x"0000";
+   wait for gCLK_HPER;
+
+
+
+    wait;
+  end process;
+  
+end behavior;

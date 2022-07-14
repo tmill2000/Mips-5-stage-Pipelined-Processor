@@ -1,0 +1,50 @@
+
+#
+# CprE 381 Generated Quartus Settings File
+#
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE115F29C7
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.0.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "19:07:08  JANUARY 28, 2019"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 Standard Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name TOP_LEVEL_ENTITY MIPS_Processor
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/ALU.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/EX_MEM_register.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/ID_EX_register.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/IF_ID_register.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/MEM_WB_register.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/MIPS_Processor.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/add_sub_N.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/andg2.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/andg_32.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/control_unit.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/dffg.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/extender_16bit.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/fetch_unit.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/five_bit_decoder.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/forwarding_unit.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/full_adder.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/full_adder_N_ripple_carry.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/hazard_unit.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/invg.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/mem.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/mips_data_path.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/mips_register_file.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/mux2t1_N.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/mux2t1_structural.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/mux_32_bit.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/n_bit_register.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/nbit_barrelshifter.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/ones_complement_N.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/org2.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/org_32.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/pc32Bit.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/reverse.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/tb_dmem.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/xorg2.vhd"
+set_global_assignment -name VHDL_FILE "/home/twmiller/CPRE381/Project2/term-project-2/HardwarePipeline/src/xorg_32.vhd"

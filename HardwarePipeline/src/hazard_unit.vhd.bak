@@ -1,0 +1,90 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity hazard_unit is
+
+port(
+	ID_EX_RD  : in std_logic_vector(4 downto 0);
+	IF_ID_RS  : in std_logic_vector(4 downto 0);
+	IF_ID_RT  : in std_logic_vector(4 downto 0);
+        EX_MEM_RD : in std_logic_vector(4 downto 0);
+	MEM_WB_RD : in std_logic_vector(4 downto 0);
+	Jump      : in std_logic;
+        Branch    : in std_logic;
+	JR        : in std_logic;
+	ID_jal    : in std_logic;
+	
+	Stall_IF : out std_logic;
+	Stall_ID : out std_logic;
+	Stall_EX : out std_logic;
+	Stall_WB : out std_logic;
+	Stall_PC : out std_logic;
+	Flush_IF : out std_logic;
+	Flush_ID : out std_logic;
+	Flush_EX : out std_logic;
+	Flush_WB : out std_logic
+	
+);
+
+
+end hazard_unit;
+
+
+architecture structure of hazard_unit is
+
+begin
+
+	--stall is 0,  1 is enable writing
+	Stall_IF <= --'0' when (ID_EX_RD = IF_ID_RS  and ID_EX_RD /= "00000" and IF_ID_RS /= "00000") else
+		    --'0' when (ID_EX_RD = IF_ID_RT  and ID_EX_RD /= "00000" and IF_ID_RT /= "00000") else
+		    --'0' when (EX_MEM_RD = IF_ID_RS and EX_MEM_RD /= "00000" and IF_ID_RS /= "00000") else
+                    --'0' when (EX_MEM_RD = IF_ID_RT and EX_MEM_RD /= "00000" and IF_ID_RT /= "00000") else
+		    --'0' when (MEM_WB_RD = IF_ID_RS and MEM_WB_RD /= "00000" and IF_ID_RS /= "00000") else
+                    --'0' when (MEM_WB_RD = IF_ID_RT  and MEM_WB_RD /= "00000" and IF_ID_RT /= "00000")else
+		    '1';
+
+	Stall_PC <= --'0' when (ID_EX_RD = IF_ID_RS  and ID_EX_RD /= "00000" and IF_ID_RS /= "00000") else
+		    --'0' when (ID_EX_RD = IF_ID_RT  and ID_EX_RD /= "00000" and IF_ID_RT /= "00000") else
+		    --'0' when (EX_MEM_RD = IF_ID_RS and EX_MEM_RD /= "00000" and IF_ID_RS /= "00000") else
+                    --'0' when (EX_MEM_RD = IF_ID_RT and EX_MEM_RD /= "00000" and IF_ID_RT /= "00000") else
+		    --'0' when (MEM_WB_RD = IF_ID_RS and MEM_WB_RD /= "00000" and IF_ID_RS /= "00000") else
+                    --'0' when (MEM_WB_RD = IF_ID_RT  and MEM_WB_RD /= "00000" and IF_ID_RT /= "00000")else
+		    '0' when (ID_jal = '1') else 
+
+		    '1';
+
+	Stall_ID <= --'0' when (ID_jal = '1') else 
+			'1';
+
+	Stall_EX <= '1';
+
+	Stall_WB <= '1';
+
+
+	Flush_IF <= '1' when (Jump = '1') else
+		    '1' when (Branch = '1') else
+		    '1' when (JR = '1') else
+		    '1' when (ID_jal = '1') else 
+		    '0';
+	
+	Flush_ID <= --'1' when ((ID_EX_RD = IF_ID_RS) and ((ID_EX_RD /= "00000") and (IF_ID_RS /= "00000"))) else
+		    --'1' when ((ID_EX_RD = IF_ID_RT) and ((ID_EX_RD /= "00000") and (IF_ID_RT /= "00000"))) else
+		    '0';
+
+	Flush_EX <= --'1' when ((EX_MEM_RD = IF_ID_RS) and ((EX_MEM_RD /= "00000") and (IF_ID_RS /= "00000"))) else
+		 --   '1' when ((EX_MEM_RD = IF_ID_RT) and ((EX_MEM_RD /= "00000") and (IF_ID_RT /= "00000"))) else
+		 --   '1' when (Jump = '1') else
+		 --   '1' when (Branch = '1') else
+		    '0';
+
+	Flush_WB <= '0';
+
+--Flush_EX <= '0';
+--Flush_ID <= '0';
+--Flush_WB <= '0';
+
+
+
+
+
+end structure;
